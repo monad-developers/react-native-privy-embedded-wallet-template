@@ -1,9 +1,10 @@
 import { getAddressForUser } from "@/utils";
+import Feather from '@expo/vector-icons/Feather';
 import { BottomSheetView } from "@gorhom/bottom-sheet";
 import { usePrivy } from "@privy-io/expo";
 import * as Clipboard from "expo-clipboard";
 import React, { useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Platform, StyleSheet, Text, View } from "react-native";
 import QRCodeStyled from "react-native-qrcode-styled";
 import SmallIconButton from "../ui/SmallIconButton";
 
@@ -53,7 +54,7 @@ function CopyButton({ walletAddress }: { walletAddress: string | null }) {
   return (
     <View style={styles.copyButtonBox}>
       <SmallIconButton
-        icon="doc.on.clipboard"
+        icon={<Feather name="copy" size={16} color="black" />}
         label="Copy"
         onPress={onCopy}
         style={styles.copyButton}
@@ -84,7 +85,10 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    fontFamily: "SF-Pro-Rounded-Semibold",
+    fontFamily: Platform.select({
+      ios: "SF-Pro-Rounded-Semibold",
+      android: "Inter_600SemiBold",
+    }),
     color: "#555",
     marginBottom: 40,
   },
@@ -126,7 +130,10 @@ const styles = StyleSheet.create({
   addressText: {
     color: "#333",
     fontSize: 20,
-    fontFamily: "SF-Pro-Rounded-Semibold",
+    fontFamily: Platform.select({
+      ios: "SF-Pro-Rounded-Semibold",
+      android: "Inter_600SemiBold",
+    }),
     textAlign: "center",
   },
   copyButtonBox: {
@@ -142,6 +149,9 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "#4ade80",
     fontSize: 18,
-    fontFamily: "SF-Pro-Rounded-Semibold",
+    fontFamily: Platform.select({
+      ios: "SF-Pro-Rounded-Semibold",
+      android: "Inter_600SemiBold",
+    }),
   },
 });

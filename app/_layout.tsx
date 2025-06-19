@@ -4,6 +4,8 @@ import {
     Inter_500Medium,
     Inter_600SemiBold,
 } from "@expo-google-fonts/inter";
+
+
 import {
     DarkTheme,
     DefaultTheme,
@@ -27,6 +29,7 @@ export default function RootLayout() {
         Inter_400Regular,
         Inter_500Medium,
         Inter_600SemiBold,
+      
     });
 
     if (!loaded) {

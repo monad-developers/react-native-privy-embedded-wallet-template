@@ -1,10 +1,8 @@
-import { IconSymbol } from "@/components/ui/IconSymbol.ios";
-import { SymbolViewProps } from 'expo-symbols';
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity, ViewStyle } from "react-native";
+import { Platform, StyleSheet, Text, TouchableOpacity, ViewStyle } from "react-native";
 
 interface IconButtonProps {
-  icon: SymbolViewProps['name'];
+  icon: React.ReactNode;
   label: string;
   onPress: () => void;
   style?: ViewStyle;
@@ -17,11 +15,7 @@ export default function IconButton({ icon, label, onPress, style }: IconButtonPr
       onPress={onPress}
       activeOpacity={0.8}
     >
-      <IconSymbol
-        name={icon}
-        size={24}
-        color="#000"
-      />
+      {icon}
       <Text style={styles.text}>{label}</Text>
     </TouchableOpacity>
   );
@@ -45,7 +39,10 @@ const styles = StyleSheet.create({
   },
   text: {
     color: "#000",
-    fontFamily: "SF-Pro-Rounded-Semibold",
+    fontFamily: Platform.select({
+      ios: 'SF-Pro-Rounded-Semibold',
+      android: 'Inter_600SemiBold',
+    }),
     fontSize: 20,
   },
 }); 

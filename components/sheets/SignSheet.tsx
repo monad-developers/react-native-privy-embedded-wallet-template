@@ -1,7 +1,7 @@
 import { useWalletContext } from "@/context/WalletContext";
 import { BottomSheetView } from "@gorhom/bottom-sheet";
 import React, { useState } from "react";
-import { StyleSheet, Text, TextInput, View } from "react-native";
+import { Platform, StyleSheet, Text, TextInput, View } from "react-native";
 import ThemedButton from "../ui/ThemedButton";
 
 export default function SignSheet() {
@@ -80,7 +80,10 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 18,
-        fontFamily: "SF-Pro-Rounded-Semibold",
+        fontFamily: Platform.select({
+            ios: "SF-Pro-Rounded-Semibold",
+            android: "Inter_600SemiBold",
+        }),
         color: "#555",
         marginBottom: 24,
     },
@@ -92,7 +95,10 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         padding: 12,
         fontSize: 16,
-        fontFamily: "SF-Pro-Rounded-Regular",
+        fontFamily: Platform.select({
+            ios: "SF-Pro-Rounded-Regular",
+            android: "Inter_400Regular",
+        }),
         marginBottom: 16,
         backgroundColor: "#fafafa",
     },
@@ -112,7 +118,10 @@ const styles = StyleSheet.create({
     signatureText: {
         fontSize: 16,
         color: "#222",
-        fontFamily: "SF-Pro-Rounded-Regular",
+        fontFamily: Platform.select({
+            ios: "SF-Pro-Rounded-Regular",
+            android: "Inter_400Regular",
+        }),
     },
     buttonWrapper: {
         paddingBottom: 32,

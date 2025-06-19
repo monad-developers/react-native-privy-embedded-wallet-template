@@ -1,14 +1,16 @@
 import { useWalletContext } from "@/context/WalletContext";
+import Feather from '@expo/vector-icons/Feather';
 import { BottomSheetView } from "@gorhom/bottom-sheet";
 import * as Clipboard from "expo-clipboard";
 import React, { useEffect, useState } from "react";
 import {
-    Linking,
-    StyleSheet,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View,
+  Linking,
+  Platform,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from "react-native";
 import { formatUnits, parseUnits } from "viem/utils";
 import FloatingIconButton from "../ui/FloatingIconButton";
@@ -123,7 +125,10 @@ export default function SendSheet() {
               fontSize: 14,
               marginTop: 8,
               alignSelf: "center",
-              fontFamily: "SF-Pro-Rounded-Regular",
+              fontFamily: Platform.select({
+                ios: "SF-Pro-Rounded-Regular",
+                android: "Inter_400Regular",
+              }),
             }}
           >
             Balance:{" "}
@@ -140,6 +145,7 @@ export default function SendSheet() {
                 value={address}
                 onChangeText={setAddress}
                 placeholder="Receiver address"
+               
                 placeholderTextColor="#bbb"
                 autoCapitalize="none"
                 autoCorrect={false}
@@ -150,7 +156,7 @@ export default function SendSheet() {
               />
               {address.length === 0 && (
                 <FloatingIconButton
-                  icon="doc.on.clipboard"
+                  icon={<Feather name="copy" size={14} color="black" />}
                   label="Paste"
                   onPress={onPaste}
                   style={styles.pasteButton}
@@ -193,7 +199,10 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    fontFamily: "SF-Pro-Rounded-Semibold",
+    fontFamily: Platform.select({
+      ios: "SF-Pro-Rounded-Semibold",
+      android: "Inter_600SemiBold",
+    }),
     color: "#555",
     marginBottom: 40,
   },
@@ -230,11 +239,17 @@ const styles = StyleSheet.create({
     fontSize: 28,
     color: "#222",
     marginRight: 8,
-    fontFamily: "SF-Pro-Rounded-Semibold",
+    fontFamily: Platform.select({
+      ios: "SF-Pro-Rounded-Semibold",
+      android: "Inter_600SemiBold",
+    }),
   },
   input: {
     fontSize: 64,
-    fontFamily: "SF-Pro-Rounded-Bold",
+    fontFamily: Platform.select({
+      ios: "SF-Pro-Rounded-Bold",
+      android: "Inter_700Bold",
+    }),
     color: "#222", // Hide the text input text
     backgroundColor: "transparent",
     borderWidth: 0,
@@ -243,13 +258,19 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 14,
     color: "#555",
-    fontFamily: "SF-Pro-Rounded-Semibold",
+    fontFamily: Platform.select({
+      ios: "SF-Pro-Rounded-Semibold",
+      android: "Inter_600SemiBold",
+    }),
     marginBottom: 10,
   },
   addressInput: {
     fontSize: 20,
     backgroundColor: "transparent",
-    fontFamily: "SF-Pro-Rounded-Semibold", // fallback monospace
+    fontFamily: Platform.select({
+      ios: "SF-Pro-Rounded-Semibold",
+      android: "Inter_600SemiBold",
+    }),
     color: "#222",
     minHeight: 48,
     textAlignVertical: "top",

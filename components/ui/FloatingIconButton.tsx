@@ -1,10 +1,8 @@
-import { IconSymbol } from "@/components/ui/IconSymbol.ios";
-import { SymbolViewProps } from 'expo-symbols';
 import React from "react";
 import { StyleSheet, Text, TextStyle, TouchableOpacity, ViewStyle } from "react-native";
 
 interface FloatingIconButtonProps {
-  icon: SymbolViewProps['name'];
+  icon: React.ReactNode;
   label: string;
   onPress: () => void;
   style?: ViewStyle;
@@ -19,11 +17,7 @@ export default function FloatingIconButton({ icon, label, onPress, style, textSt
       onPress={onPress}
       activeOpacity={0.8}
     >
-      <IconSymbol
-        name={icon}
-        size={iconSize}
-        color="#000"
-      />
+      {icon}
       <Text style={[styles.text, textStyle]}>{label}</Text>
     </TouchableOpacity>
   );
@@ -47,6 +41,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: "#000",
+    lineHeight: 12,
     fontFamily: "SF-Pro-Rounded-Semibold",
     fontSize: 13,
   },
