@@ -9,6 +9,7 @@ You can start developing by editing the files inside the **app** directory. This
 - Node.js
 - NPM
 - Expo CLI (Install using the following command: `npm i -g expo-cli`)
+- Privy Account
 
 For Android:
 - Android Studio (API version 35 and above)
@@ -18,28 +19,48 @@ For iOS:
 - [XCode](https://apps.apple.com/in/app/xcode/id497799835?mt=12)
   - Guide to setup iOS Simulator for Expo is available [here](https://docs.expo.dev/workflow/ios-simulator/)
 
-Privy Account
 
 ### Setting up the Privy account
 
-- Create App
-- Set up login methods
-  - Enable email
-  - Enable  "Automatically create embedded wallets on login" and select "EVM Wallets"
-  - Disable everything in Socials
-  - Go to "Advanced" and Make sure only "Web2: Email, SMS, and socials" under "Prioritize options displayed" is enabled.
-  - Tip you can enable "Test Accounts" for testing purposes.
-  - A few more steps are required but we will continue once the dependencies for the template are installed.
+#### Create App
+
+![create app](/assets/readme/privy_create_app.png)
+
+![nameing app](/assets/readme/privy_naming_app.png)
+
+#### Set up login methods
+
+![set up login methods](/assets/readme/set_up_login_methods.png)
+
+#### Enable email
+
+![enable email](/assets/readme/enable_email.png)
+
+#### Enable  "Automatically create embedded wallets on login" and select "EVM Wallets"
+
+![create wallets automatically](/assets/readme/create_wallet_automatically.png)
+
+#### Disable everything in Socials
+
+#### Go to "Advanced" and Make sure only "Web2: Email, SMS, and socials" under "Prioritize options displayed" is enabled.
+
+![prioritize web2 methods](/assets/readme/prioritize_web2_methods.png)
+
+#### Tip you can enable "Test Accounts" for testing purposes.
+
+![test wallets](/assets/readme/test_wallets.png)
+
+A few more steps are required but we will continue once the dependencies for the template are installed.
 
 ## Get started
 
-1. Install dependencies
+### Install dependencies
 
 ```bash
 npm install
 ```
 
-2. Set up the environment variables
+### Set up the environment variables
 
 - Create a copy of `.env.example`
 - Rename it to `.env`
@@ -50,21 +71,37 @@ EXPO_PUBLIC_PRIVY_APP_ID=
 EXPO_PUBLIC_PRIVY_CLIENT_ID=
 ```
 
-`EXPO_PUBLIC_PRIVY_APP_ID`:
-   - Go to your Privy Dashboard and click on "Home" for your Privy app
-   - Click on "Retrieve API keys"
-   - You will find "App ID" under "API keys"
+#### `EXPO_PUBLIC_PRIVY_APP_ID`
 
-`EXPO_PUBLIC_PRIVY_CLIENT_ID`:
-   - Go to your Privy Dashboard and click on "Home" for your Privy app
-   - Click on the "Clients" tab at the top
-   - If there is no client create one for "Mobile" environment
-   - Click on "Edit"
-   - Under "Allowed app identifiers" paste the name of the app bundle and click "Add"
-     - You can find the app bundle name in `app.json` for Android it is `package` property and iOS it is the `bundleIdentifier` property
-   - You can copy the "Client ID" and use as the value for `EXPO_PUBLIC_PRIVY_CLIENT_ID`
+1. Go to your Privy Dashboard and click on "Home" for your Privy app and click on "Retrieve API keys".
 
-1. Start the app
+![retrieve api keys](/assets/readme/retrieve_api_keys.png)
+
+2. You will find "App ID" under "API keys".
+
+![api key](/assets/readme/api_keys.png)
+
+#### `EXPO_PUBLIC_PRIVY_CLIENT_ID`
+
+1. Go to your Privy Dashboard and click on "Home" for your Privy app and click on "Retrieve API keys".
+
+![retrieve api keys](/assets/readme/retrieve_api_keys.png)
+
+2. Click on the "Clients" tab at the top and click on "Edit".
+
+![clients](/assets/readme/clients.png)
+
+3. Under "Allowed app identifiers" paste the name of the app bundle and click "Add"
+
+You can find the app bundle name in `app.json` for Android it is `package` property and iOS it is the `bundleIdentifier` property
+
+![allowed identifiers](/assets/readme/allowed_identifiers.png)
+
+4. You can copy the "Client ID" and use as the value for `EXPO_PUBLIC_PRIVY_CLIENT_ID`.
+
+![client_id](/assets/readme/client_id.png)
+
+### Start the app
 
 The below commands will start the app in Expo Go app on respective devices.
 
@@ -155,7 +192,6 @@ react-native-privy-embedded-wallet-template/
 
 ## Modifying the app name
 
-
 <table width="100%">
   <tr>
     <th width="50%">iOS</th>
@@ -175,10 +211,10 @@ Edit the `name` property in the `app.json` file.
 
 ```json
 {
-  "expo": {
-   "name": "wallet-app", <--- Edit this
-   ...
-  }
+   "expo": {
+      "name": "wallet-app", <--- Edit this
+      ...
+   }
 }  
 ```
 
@@ -209,12 +245,12 @@ If you name the icon file something else then edit the `icon` property in `app.j
 
 ```json
 {
-  "expo": {
-    "name": "rn-wallet-app",
-   ...
-   "icon": "./assets/images/icon.png", <--- Change this
-    ...
-  }
+   "expo": {
+      "name": "rn-wallet-app",
+      ...
+      "icon": "./assets/images/icon.png", <--- Change this
+      ...
+   }
 }
 ```
 
@@ -239,14 +275,14 @@ Edit the `splash` object in `app.json` to modify the splash screen.
 
 ```json
 {
-  "expo": {
-   "name": "rn-wallet-app",
-   ...
-   "splash": { <--- Edit this object
-      "image": "./assets/images/icon.png",
-      "backgroundColor": "#ff0000"
-   }
-   ...
+   "expo": {
+      "name": "rn-wallet-app",
+      ...
+      "splash": { <--- Edit this object
+         "image": "./assets/images/icon.png",
+         "backgroundColor": "#ff0000"
+      }
+   }  
 }
 ```
 
@@ -278,8 +314,29 @@ The template has example code for the following Wallet Actions:
 - [Sign Message](https://github.com/monad-developers/react-native-privy-embedded-wallet-template/blob/main/components/sheets/SignSheet.tsx)
 
 
+## Modifying the package/bundle identifier
 
-Change package name in `app.json`
+When publishing app to the app store you need to have a unique package/bundle identifier you can change it in in `app.json`.
+
+> [!NOTE]
+> Don't forget to the change the identifier in Privy dashboard
+
+```json
+{
+  "expo": {
+    "name": "rn-wallet-app",
+    ...
+    "ios": {
+      "bundleIdentifier": "com.anonymous.rn-wallet-app", <--- Edit this
+      ...
+    },
+    "android": {
+      ...
+      "package": "com.anonymous.rnwalletapp" <--- Edit this
+    },
+  }
+}
+```
 
 ## Get a fresh project
 
