@@ -167,9 +167,20 @@ If you name the icon file something else then edit the `icon` property in `app.j
 
 ### Splash Screen
 
-| iOS | Android |
-|---|---|
-| <img src="/assets/readme/splash_ios.png" width="300"/> | <img src="/assets/readme/splash_android.png" width="300"/> |
+<table width="100%">
+  <tr>
+    <th width="50%">iOS</th>
+    <th width="50%">Android</th>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="/assets/readme/splash_ios.png" width="300"/>
+    </td>
+    <td align="center">
+      <img src="/assets/readme/splash_android.png" width="300"/>
+    </td>
+  </tr>
+</table>
 
 ## Modifying fonts for the app
 
