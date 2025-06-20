@@ -153,17 +153,70 @@ react-native-privy-embedded-wallet-template/
   ├── tsconfig.json
 ```
 
+## Modifying the app name
+
+
+<table width="100%">
+  <tr>
+    <th width="50%">iOS</th>
+    <th width="50%">Android</th>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="/assets/readme/icon_ios.png" width="300"/>
+    </td>
+    <td align="center">
+      <img src="/assets/readme/icon_android.png" width="300"/>
+    </td>
+  </tr>
+</table>
+
+Edit the `name` property in the `app.json` file.
+
+```json
+{
+  "expo": {
+   "name": "wallet-app", <--- Edit this
+   ...
+  }
+}  
+```
+
 ## Modifying the App Icon & Splash Screen
 
 ### App Icon
 
+<table width="100%">
+  <tr>
+    <th width="50%">iOS</th>
+    <th width="50%">Android</th>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="/assets/readme/icon_ios.png" width="300"/>
+    </td>
+    <td align="center">
+      <img src="/assets/readme/icon_android.png" width="300"/>
+    </td>
+  </tr>
+</table>
+
 You can edit the app icon by replacing the `assets/images/icon.png` file.
 
-Recommended App Icon size is 1024x1024.
+Recommended App Icon size is `1024x1024`.
 
 If you name the icon file something else then edit the `icon` property in `app.json` accordingly.
 
-<!-- add a screenshot here -->
+```json
+{
+  "expo": {
+    "name": "rn-wallet-app",
+   ...
+   "icon": "./assets/images/icon.png", <--- Change this
+    ...
+  }
+}
+```
 
 ### Splash Screen
 
@@ -181,6 +234,21 @@ If you name the icon file something else then edit the `icon` property in `app.j
     </td>
   </tr>
 </table>
+
+Edit the `splash` object in `app.json` to modify the splash screen.
+
+```json
+{
+  "expo": {
+   "name": "rn-wallet-app",
+   ...
+   "splash": { <--- Edit this object
+      "image": "./assets/images/icon.png",
+      "backgroundColor": "#ff0000"
+   }
+   ...
+}
+```
 
 ## Modifying fonts for the app
 
@@ -210,8 +278,8 @@ The template has example code for the following Wallet Actions:
 - [Sign Message](https://github.com/monad-developers/react-native-privy-embedded-wallet-template/blob/main/components/sheets/SignSheet.tsx)
 
 
-Change package name in `app.json`
 
+Change package name in `app.json`
 
 ## Get a fresh project
 
@@ -234,9 +302,8 @@ To learn more about developing your project with Expo, Privy and Monad look at t
 - [Signing transactions using embedded wallet](https://docs.privy.io/wallets/using-wallets/ethereum/sign-a-transaction)
 - [Tooling and infra options on Monad](https://docs.monad.xyz/tooling-and-infra/)
 
-
 ## Join the community
 
-Join our community of developers creating Web3 apps.
-
 - [Discord community](https://discord.com/invite/monaddev): Chat with fellow Monad developers and ask questions.
+
+Facing issues? report [here](https://github.com/monad-developers/react-native-privy-embedded-wallet-template/issues).
