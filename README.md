@@ -46,11 +46,11 @@ For iOS:
 
 ![prioritize web2 methods](/assets/readme/prioritize_web2_methods.png)
 
-#### Tip you can enable "Test Accounts" for testing purposes.
+#### Tip: You can enable "Test Accounts" for testing purposes.
 
 ![test wallets](/assets/readme/test_wallets.png)
 
-A few more steps are required but we will continue once the dependencies for the template are installed.
+A few more steps are required but we will continue once the dependencies for the project are installed.
 
 ## Get started
 
@@ -73,31 +73,31 @@ EXPO_PUBLIC_PRIVY_CLIENT_ID=
 
 #### `EXPO_PUBLIC_PRIVY_APP_ID`
 
-1. Go to your Privy Dashboard and click on "Home" for your Privy app and click on "Retrieve API keys".
+1. Go to your Privy Dashboard and click on `Home` for your Privy app and click on `Retrieve API keys`.
 
 ![retrieve api keys](/assets/readme/retrieve_api_keys.png)
 
-2. You will find "App ID" under "API keys".
+2. You will find `App ID` under `API keys`.
 
 ![api key](/assets/readme/api_keys.png)
 
 #### `EXPO_PUBLIC_PRIVY_CLIENT_ID`
 
-1. Go to your Privy Dashboard and click on "Home" for your Privy app and click on "Retrieve API keys".
+1. Go to your Privy Dashboard and click on "Home" for your Privy app and click on `Retrieve API keys`.
 
 ![retrieve api keys](/assets/readme/retrieve_api_keys.png)
 
-2. Click on the "Clients" tab at the top and click on "Edit".
+2. Click on the `Clients` tab at the top and click on `Edit`.
 
 ![clients](/assets/readme/clients.png)
 
-3. Under "Allowed app identifiers" paste the name of the app bundle and click "Add"
+3. Under `Allowed app identifiers` paste the name of the app bundle and click `Add`
 
 You can find the app bundle name in `app.json` for Android it is `package` property and iOS it is the `bundleIdentifier` property
 
 ![allowed identifiers](/assets/readme/allowed_identifiers.png)
 
-4. You can copy the "Client ID" and use as the value for `EXPO_PUBLIC_PRIVY_CLIENT_ID`.
+4. You can copy the `Client ID` and use as the value for `EXPO_PUBLIC_PRIVY_CLIENT_ID`.
 
 ![client_id](/assets/readme/client_id.png)
 
@@ -280,7 +280,7 @@ Edit the `splash` object in `app.json` to modify the splash screen.
       ...
       "splash": { <--- Edit this object
          "image": "./assets/images/icon.png",
-         "backgroundColor": "#ff0000"
+         "backgroundColor": "#ffffff"
       }
    }  
 }
@@ -293,9 +293,13 @@ Edit the `splash` object in `app.json` to modify the splash screen.
 Edit the `scheme` property in `app.json` file, for your custom deeplinking scheme.
 
 ```json
-...
-   "scheme": "rnwalletapp",
-...
+{
+  "expo": {
+    ...
+    "scheme": "rnwalletapp",
+    ...
+  }
+}
 ```
 
 For example, if you set this to `rnwalletapp`, then `rnwalletapp://` URLs would open your app when tapped.
@@ -340,7 +344,7 @@ When publishing app to the app store you need to have a unique package/bundle id
 
 ## Get a fresh project
 
-When you're ready, run:
+If you want start a fresh with just the Privy configuration and no screens run:
 
 ```bash
 npm run reset-project
@@ -352,8 +356,9 @@ This command will move the starter code to the **app-example** directory and cre
 
 To learn more about developing your project with Expo, Privy and Monad look at the following resources:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- [Expo documentation](https://docs.expo.dev/)
+- [Expo guides](https://docs.expo.dev/guides)
+- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/)
 - [Creating embedded wallet on the client side](https://docs.privy.io/wallets/wallets/create/from-my-client)
 - [Sending transactions using embedded wallet](https://docs.privy.io/wallets/using-wallets/ethereum/send-a-transaction)
 - [Signing transactions using embedded wallet](https://docs.privy.io/wallets/using-wallets/ethereum/sign-a-transaction)
