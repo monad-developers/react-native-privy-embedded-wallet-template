@@ -12,7 +12,7 @@ You can start developing by editing the files inside the **app** directory. This
 - Privy Account
 
 For Android:
-- Android Studio (API version 35 and above)
+- [Android Studio](https://developer.android.com/studio) (API version 35 and above)
   - Guide to setup Android Studio for Expo is available [here](https://docs.expo.dev/workflow/android-studio-emulator/)
 
 For iOS:
