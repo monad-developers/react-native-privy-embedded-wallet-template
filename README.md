@@ -1,29 +1,206 @@
-# Welcome to your Expo app 👋
+# React Native Privy Embedded Wallet Template
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This is a wallet template which uses Expo, React Native, Monad and Privy Embedded Wallet.
+
+You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+
+## Prerequisites
+
+- Node.js
+- NPM
+- Expo CLI (Install using the following command: `npm i -g expo-cli`)
+
+For Android:
+- Android Studio (API version 35 and above)
+  - Guide to setup Android Studio for Expo is available [here](https://docs.expo.dev/workflow/android-studio-emulator/)
+
+For iOS:
+- [XCode](https://apps.apple.com/in/app/xcode/id497799835?mt=12)
+  - Guide to setup iOS Simulator for Expo is available [here](https://docs.expo.dev/workflow/ios-simulator/)
+
+Privy Account
+
+### Setting up the Privy account
+
+- Create App
+- Set up login methods
+  - Enable email
+  - Enable  "Automatically create embedded wallets on login" and select "EVM Wallets"
+  - Disable everything in Socials
+  - Go to "Advanced" and Make sure only "Web2: Email, SMS, and socials" under "Prioritize options displayed" is enabled.
+  - Tip you can enable "Test Accounts" for testing purposes.
+  - A few more steps are required but we will continue once the dependencies for the template are installed.
 
 ## Get started
 
 1. Install dependencies
 
-   ```bash
-   npm install
-   ```
+```bash
+npm install
+```
 
-2. Start the app
+2. Set up the environment variables
 
-   ```bash
-   npx expo start
-   ```
+- Create a copy of `.env.example`
+- Rename it to `.env`
+- Add the following environment variables to it
 
-In the output, you'll find options to open the app in a
+```
+EXPO_PUBLIC_PRIVY_APP_ID=
+EXPO_PUBLIC_PRIVY_CLIENT_ID=
+```
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+`EXPO_PUBLIC_PRIVY_APP_ID`:
+   - Go to your Privy Dashboard and click on "Home" for your Privy app
+   - Click on "Retrieve API keys"
+   - You will find "App ID" under "API keys"
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+`EXPO_PUBLIC_PRIVY_CLIENT_ID`:
+   - Go to your Privy Dashboard and click on "Home" for your Privy app
+   - Click on the "Clients" tab at the top
+   - If there is no client create one for "Mobile" environment
+   - Click on "Edit"
+   - Under "Allowed app identifiers" paste the name of the app bundle and click "Add"
+     - You can find the app bundle name in `app.json` for Android it is `package` property and iOS it is the `bundleIdentifier` property
+   - You can copy the "Client ID" and use as the value for `EXPO_PUBLIC_PRIVY_CLIENT_ID`
+
+1. Start the app
+
+The below commands will start the app in Expo Go app on respective devices.
+
+For iOS:
+
+```bash
+npm run ios
+```
+
+For Android:
+
+```bash
+npm run android
+```
+
+For native app builds use the following commands:
+
+For iOS:
+
+```bash
+npm run expo:ios
+```
+
+For Android:
+
+```bash
+npm run expo:android
+```
+
+## Folder structure
+
+```
+react-native-privy-embedded-wallet-template/
+  ├── app/
+  │   ├── _layout.tsx <--- Root layout of the project
+  │   ├── +not-found.tsx
+  │   ├── demo/ <--- This is entrypoint for the Wallet related code.
+  │   │   ├── _layout.tsx
+  │   │   ├── app/ <--- If Authenticated the user can access route /app
+  │   │   │   ├── _layout.tsx
+  │   │   │   └── index.tsx
+  │   │   └── sign-in/ <--- Unauthenticated user gets redirected to /sign-in
+  │   └── index.tsx <--- This is the landing page
+  ├── assets/
+  │   ├── fonts/ <--- Custom fonts go here
+  │   │   └── SF_Pro_Rounded/ <--- Custom Font example
+  │   └── images/
+  │       ├── adaptive-icon.png
+  │       ├── favicon.png
+  │       ├── icon.png
+  │       ├── monad-icon.png
+  │       ├── monad-logo-inverted.png
+  │       ├── monad-logo.png
+  │       ├── partial-react-logo.png
+  │       └── splash-icon.png
+  ├── components/
+  │   ├── sheets/ <--- All the bottom sheets are here
+  │   └── ui/
+  ├── config/
+  │   ├── privyConfig.ts <--- Privy related config
+  │   ├── providers.tsx 
+  │   └── wagmiConfig.ts <--- Monad Testnet related config
+  ├── constants/
+  ├── context/
+  │   ├── AuthContext.tsx
+  │   └── WalletContext.tsx <--- Wallet actions implementations are here
+  ├── hooks/
+  ├── screens/
+  │   ├── Email/ <--- Screen that asks for Email
+  │   ├── Home/ <--- Wallet Home screen (Authenticated users only)
+  │   ├── Landing/ <--- Screen with info on how to use the template
+  │   └── OTP/ <--- Screen that asks for the OTP code sent to email
+  ├── scripts/
+  │   └── reset-project.js <--- Script to reset the project and remove all screens
+  ├── types/
+  ├── utils.ts
+  ├── entrypoint.ts
+  ├── app.json
+  ├── babel.config.js
+  ├── eas.json
+  ├── eslint.config.js
+  ├── metro.config.js
+  ├── package.json
+  ├── package-lock.json
+  ├── README.md
+  ├── tsconfig.json
+```
+
+## Modifying the App Icon & Splash Screen
+
+### App Icon
+
+You can edit the app icon by replacing the `assets/images/icon.png` file.
+
+Recommended App Icon size is 1024x1024.
+
+If you name the icon file something else then edit the `icon` property in `app.json` accordingly.
+
+<!-- add a screenshot here -->
+
+### Splash Screen
+
+| iOS | Android |
+|---|---|
+| <img src="/assets/readme/splash_ios.png" width="300"/> | <img src="/assets/readme/splash_android.png" width="300"/> |
+
+## Modifying fonts for the app
+
+## Modifying the deeplinking scheme
+
+Edit the `scheme` property in `app.json` file, for your custom deeplinking scheme.
+
+```json
+...
+   "scheme": "rnwalletapp",
+...
+```
+
+For example, if you set this to `rnwalletapp`, then `rnwalletapp://` URLs would open your app when tapped.
+
+This is a build-time configuration, it has no effect in Expo Go.
+
+## Editing the landing screen
+
+You can edit the landing page by editing the code in the file `app/index.tsx`.
+
+## Wallet Actions
+
+The template has example code for the following Wallet Actions:
+
+- [Send USDC](https://github.com/monad-developers/react-native-privy-embedded-wallet-template/blob/main/components/sheets/SendSheet.tsx) 
+- [Sign Message](https://github.com/monad-developers/react-native-privy-embedded-wallet-template/blob/main/components/sheets/SignSheet.tsx)
+
+
+Change package name in `app.json`
+
 
 ## Get a fresh project
 
@@ -37,14 +214,18 @@ This command will move the starter code to the **app-example** directory and cre
 
 ## Learn more
 
-To learn more about developing your project with Expo, look at the following resources:
+To learn more about developing your project with Expo, Privy and Monad look at the following resources:
 
 - [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
 - [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- [Creating embedded wallet on the client side](https://docs.privy.io/wallets/wallets/create/from-my-client)
+- [Sending transactions using embedded wallet](https://docs.privy.io/wallets/using-wallets/ethereum/send-a-transaction)
+- [Signing transactions using embedded wallet](https://docs.privy.io/wallets/using-wallets/ethereum/sign-a-transaction)
+- [Tooling and infra options on Monad](https://docs.monad.xyz/tooling-and-infra/)
+
 
 ## Join the community
 
-Join our community of developers creating universal apps.
+Join our community of developers creating Web3 apps.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- [Discord community](https://discord.com/invite/monaddev): Chat with fellow Monad developers and ask questions.
