@@ -60,6 +60,14 @@ A few more steps are required but we will continue once the dependencies for the
 npm install
 ```
 
+> [!WARN]
+> Make sure to install the following versions of the packages, in case you modify the `package.json` file included in the project.
+> 
+> `"expo": "~53.0.11"`
+> `"expo-crypto": "~14.1.5"`
+> `"expo-image": "~2.3.0"`
+> `"expo-router": "~5.1.0"`
+
 ### Set up the environment variables
 
 - Create a copy of `.env.example`
@@ -307,6 +315,21 @@ For example, if you set this to `rnwalletapp`, then `rnwalletapp://` URLs would 
 This is a build-time configuration, it has no effect in Expo Go.
 
 ## Editing the landing screen
+
+<table width="100%">
+  <tr>
+    <th width="50%">iOS</th>
+    <th width="50%">Android</th>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="/assets/readme/landing_screen_ios.png" width="300"/>
+    </td>
+    <td align="center">
+      <img src="/assets/readme/landing_screen_android.png" width="300"/>
+    </td>
+  </tr>
+</table>
 
 You can edit the landing page by editing the code in the file `app/index.tsx`.
 

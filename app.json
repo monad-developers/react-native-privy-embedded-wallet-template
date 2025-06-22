@@ -4,16 +4,26 @@
     "slug": "rn-wallet-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/monad-icon.png",
+    "icon": "./assets/images/icon.png",
+    "splash": {
+      "image": "./assets/images/icon.png",
+      "backgroundColor": "#ffffff"
+    },
     "scheme": "rnwalletapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
+    "githubUrl": "https://github.com/monad-developers/react-native-privy-embedded-wallet-template",
     "ios": {
-      "bundleIdentifier": "com.anonymous.rn-wallet-app"
+      "bundleIdentifier": "com.anonymous.rn-wallet-app",
+      "icon": "./assets/images/icon.png",
+      "splash": {
+        "image": "./assets/images/icon.png",
+        "backgroundColor": "#ff0000"
+      }
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/monad-icon.png",
+        "foregroundImage": "./assets/images/icon.png",
         "resizeMode": "contain",
         "imageSize": 50,
         "backgroundColor": "#ffffff"
@@ -28,15 +38,6 @@
     },
     "plugins": [
       "expo-router",
-      [
-        "expo-splash-screen",
-        {
-          "image": "./assets/images/monad-icon.png",
-          "imageWidth": 200,
-          "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
-        }
-      ],
       [
         "expo-build-properties",
         {
@@ -53,12 +54,6 @@
     ],
     "experiments": {
       "typedRoutes": true
-    },
-    "extra": {
-      "router": {},
-      "eas": {
-        "projectId": "677c3b3b-e9db-46e7-9d89-fac88aae2b40"
-      }
     }
   }
 }
