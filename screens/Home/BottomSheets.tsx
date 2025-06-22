@@ -13,22 +13,35 @@ export default function BottomSheets({
     setSheetType: (type: "send" | "receive" | "sign" | null) => void;
     bottomSheetRef: React.RefObject<BottomSheet | null>;
   }) {
-    const snapPoints = ["90%"];
+    const snapPoints = ["1%", "90%"];
   
     const handleClose = useCallback(() => {
       setSheetType(null);
       bottomSheetRef.current?.close();
     }, []);
+
+    const renderBackdrop = useCallback(
+      (props: any) => (
+        <BottomSheetBackdrop
+          style={{ backgroundColor: "rgba(255, 0, 0, 1)" }}
+          {...props}
+          disappearsOnIndex={0}
+          appearsOnIndex={1}
+        />
+      ),
+      []
+    );
   
     return (
       <BottomSheet
         ref={bottomSheetRef}
-        index={0}
         snapPoints={snapPoints}
         enablePanDownToClose
         handleStyle={{ display: "none" }}
         backgroundStyle={{ backgroundColor: "#fff" }}
-        backdropComponent={BottomSheetBackdrop}
+        backdropComponent={renderBackdrop}
+        enableDynamicSizing={false}
+        index={0}
         onClose={handleClose}
       >
         {sheetType === "send" && <SendSheet />}
