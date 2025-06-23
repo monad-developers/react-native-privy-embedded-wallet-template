@@ -35,9 +35,8 @@ export default function Index() {
 
 const layoutContent = `import { PrivyProvider } from "@privy-io/expo";
 import { Slot } from "expo-router";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, useColorScheme, View } from "react-native";
 import { monadTestnet } from "viem/chains";
-import { useColorScheme } from "@/hooks/useColorScheme";
 import {
     Inter_400Regular,
     Inter_500Medium,
