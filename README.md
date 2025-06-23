@@ -60,18 +60,14 @@ A few more steps are required but we will continue once the dependencies for the
 npm install
 ```
 
-> [!WARN]
-> Make sure to install the following versions of the packages, in case you modify the `package.json` file included in the project.
-> 
-> `"expo": "~53.0.11"`
-> `"expo-crypto": "~14.1.5"`
-> `"expo-image": "~2.3.0"`
-> `"expo-router": "~5.1.0"`
-
 ### Set up the environment variables
 
 - Create a copy of `.env.example`
-- Rename it to `.env`
+
+```bash
+cp .env.example .env
+```
+
 - Add the following environment variables to it
 
 ```
@@ -377,7 +373,7 @@ This command will move the starter code to the **app-example** directory and cre
 
 ## Learn more
 
-To learn more about developing your project with Expo, Privy and Monad look at the following resources:
+To learn more about developing your project with Expo, Privy, and Monad look at the following resources:
 
 - [Expo documentation](https://docs.expo.dev/)
 - [Expo guides](https://docs.expo.dev/guides)
