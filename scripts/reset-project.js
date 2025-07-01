@@ -11,7 +11,7 @@ const path = require("path");
 const readline = require("readline");
 
 const root = process.cwd();
-const oldDirs = ["app", "components", "hooks", "constants", "scripts"];
+const oldDirs = ["app", "components", "hooks", "constants", "scripts", "screens", "config", "context"];
 const exampleDir = "app-example";
 const newAppDir = "app";
 const exampleDirPath = path.join(root, exampleDir);
@@ -88,7 +88,8 @@ export default function RootLayout() {
             </PrivyProvider>
           ) : (
             <View style={styles.container}>
-                <Text>PRIVY_APP_ID is not set</Text>
+                <Text>EXPO_PUBLIC_PRIVY_APP_ID is not set in .env file</Text>
+                <Text>EXPO_PUBLIC_PRIVY_CLIENT_ID is not set in .env file</Text>
             </View>
           )}
            
@@ -101,6 +102,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
+        gap: 10,
     },
 });
 `;
