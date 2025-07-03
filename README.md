@@ -57,8 +57,11 @@ A few more steps are required but we will continue once the dependencies for the
 
 ## Get started
 
-> ![NOTE]
+> [!NOTE]
 > This repo also has a `demo` branch that you can switch to in order to view the demo project.
+> ```
+> git checkout demo
+> ```
 
 ### Install dependencies
 
