@@ -4,6 +4,9 @@ This is a wallet template which uses Expo, React Native, Monad and Privy Embedde
 
 You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
+> [!NOTE]
+> This repo also has a `demo` branch that you can switch to in order to view the demo project.
+
 ## Prerequisites
 
 - Node.js
@@ -53,6 +56,9 @@ For iOS:
 A few more steps are required but we will continue once the dependencies for the project are installed.
 
 ## Get started
+
+> ![NOTE]
+> This repo also has a `demo` branch that you can switch to in order to view the demo project.
 
 ### Install dependencies
 
@@ -126,72 +132,45 @@ For native app builds use the following commands:
 For iOS:
 
 ```bash
-npm run expo:ios
+npx expo run:ios
 ```
 
 For Android:
 
 ```bash
-npm run expo:android
+npx expo run:android
 ```
 
-## Folder structure
+## Folder structure of the template
 
 ```
 react-native-privy-embedded-wallet-template/
-  ├── app/
-  │   ├── _layout.tsx <--- Root layout of the project
-  │   ├── +not-found.tsx
-  │   ├── demo/ <--- This is entrypoint for the Wallet related code.
-  │   │   ├── _layout.tsx
-  │   │   ├── app/ <--- If Authenticated the user can access route /app
-  │   │   │   ├── _layout.tsx
-  │   │   │   └── index.tsx
-  │   │   └── sign-in/ <--- Unauthenticated user gets redirected to /sign-in
-  │   └── index.tsx <--- This is the landing page
+  ├── app/                                   # Expo router entrypoint
+  │   ├── _layout.tsx                        # Root Layout
+  │   └── index.tsx                          # First screen
   ├── assets/
-  │   ├── fonts/ <--- Custom fonts go here
-  │   │   └── SF_Pro_Rounded/ <--- Custom Font example
-  │   └── images/
+  │   ├── fonts/                             # Custom fonts go here
+  │   └── images/ 
   │       ├── adaptive-icon.png
   │       ├── favicon.png
   │       ├── icon.png
-  │       ├── monad-icon.png
   │       ├── monad-logo-inverted.png
-  │       ├── monad-logo.png
-  │       ├── partial-react-logo.png
-  │       └── splash-icon.png
-  ├── components/
-  │   ├── sheets/ <--- All the bottom sheets are here
-  │   └── ui/
-  ├── config/
-  │   ├── privyConfig.ts <--- Privy related config
-  │   ├── providers.tsx 
-  │   └── wagmiConfig.ts <--- Monad Testnet related config
+  │       └── monad-logo.png
+  │   └── readme/                            # images for the readme, you can delete this
   ├── constants/
-  ├── context/
-  │   ├── AuthContext.tsx
-  │   └── WalletContext.tsx <--- Wallet actions implementations are here
-  ├── hooks/
-  ├── screens/
-  │   ├── Email/ <--- Screen that asks for Email
-  │   ├── Home/ <--- Wallet Home screen (Authenticated users only)
-  │   ├── Landing/ <--- Screen with info on how to use the template
-  │   └── OTP/ <--- Screen that asks for the OTP code sent to email
-  ├── scripts/
-  │   └── reset-project.js <--- Script to reset the project and remove all screens
-  ├── types/
-  ├── utils.ts
-  ├── entrypoint.ts
-  ├── app.json
+  │   └── Colors.ts
+  ├── app.json                               # App properties
   ├── babel.config.js
   ├── eas.json
+  ├── entrypoint.js
   ├── eslint.config.js
-  ├── metro.config.js
-  ├── package.json
+  ├── metro.config.js                        # Configuration for Hermes and Polyfills
   ├── package-lock.json
+  ├── package.json
   ├── README.md
   ├── tsconfig.json
+  ├── types/
+  │   └── react-native-qrcode-styled.d.ts
 ```
 
 ## Modifying the app name
@@ -361,15 +340,70 @@ When publishing app to the app store you need to have a unique package/bundle id
 }
 ```
 
-## Get a fresh project
+## Check out the demo app
 
-If you want start a fresh with just the Privy configuration and no screens run:
+If you want try the demo app before you start developing you can switch to the `demo` branch available with the repo:
 
 ```bash
-npm run reset-project
+git checkout demo
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### Folder structure of the demo project (Change to `demo` branch to view this)
+
+```
+react-native-privy-embedded-wallet-template/
+  ├── app/
+  │   ├── _layout.tsx                        # Root layout of the project
+  │   ├── +not-found.tsx
+  │   ├── demo/                              # This is entrypoint for the Wallet related code.
+  │   │   ├── _layout.tsx
+  │   │   ├── app/                           # If Authenticated the user can access route /app
+  │   │   │   ├── _layout.tsx
+  │   │   │   └── index.tsx
+  │   │   └── sign-in/                       # Unauthenticated user gets redirected to /sign-in
+  │   └── index.tsx                          # This is the landing page
+  ├── assets/
+  │   ├── fonts/                             # Custom fonts go here
+  │   │   └── SF_Pro_Rounded/                # Custom Font example
+  │   └── images/
+  │       ├── adaptive-icon.png
+  │       ├── favicon.png
+  │       ├── icon.png
+  │       ├── monad-icon.png
+  │       ├── monad-logo-inverted.png
+  │       ├── monad-logo.png
+  │       ├── partial-react-logo.png
+  │       └── splash-icon.png
+  ├── components/
+  │   ├── sheets/                            # All the bottom sheets are here
+  │   └── ui/
+  ├── config/
+  │   ├── privyConfig.ts                     # Privy related config
+  │   ├── providers.tsx 
+  │   └── wagmiConfig.ts                     # Monad Testnet related config
+  ├── constants/
+  ├── context/
+  │   ├── AuthContext.tsx
+  │   └── WalletContext.tsx                  # Wallet actions implementations are here
+  ├── hooks/
+  ├── screens/
+  │   ├── Email/                             # Screen that asks for Email
+  │   ├── Home/                              # Wallet Home screen (Authenticated users only)
+  │   ├── Landing/                           # Screen with info on how to use the template
+  │   └── OTP/                               # Screen that asks for the OTP code sent to email
+  ├── types/
+  ├── utils.ts
+  ├── entrypoint.ts
+  ├── app.json
+  ├── babel.config.js
+  ├── eas.json
+  ├── eslint.config.js
+  ├── metro.config.js
+  ├── package.json
+  ├── package-lock.json
+  ├── README.md
+  ├── tsconfig.json
+```
 
 ## Learn more
 
