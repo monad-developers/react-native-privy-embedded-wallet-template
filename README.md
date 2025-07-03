@@ -126,13 +126,13 @@ For native app builds use the following commands:
 For iOS:
 
 ```bash
-npm run expo:ios
+npx expo run:ios
 ```
 
 For Android:
 
 ```bash
-npm run expo:android
+npx expo run:android
 ```
 
 ## Folder structure
