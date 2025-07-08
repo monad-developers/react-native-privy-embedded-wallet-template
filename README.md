@@ -274,7 +274,7 @@ Edit the `splash` object in `app.json` to modify the splash screen.
 
 ## Modifying fonts for the app
 
-You can add custom font files in the `assets/fonts` folder.
+You can create a `fonts` folder inside `assets` folder and keep your custom font files inside the `fonts` folder.
 
 To use the custom font, load the font in the `app/_layout.tsx` file.
 
