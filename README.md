@@ -274,6 +274,26 @@ Edit the `splash` object in `app.json` to modify the splash screen.
 
 ## Modifying fonts for the app
 
+You can add custom font files in the `assets/fonts` folder.
+
+To use the custom font, load the font in the `app/_layout.tsx` file.
+
+Example:
+
+```ts
+const [loaded] = useFonts({
+  "SF-Pro-Rounded-Black": require("../assets/fonts/SF_Pro_Rounded/SF-Pro-Rounded-Black.otf"),
+  "SF-Pro-Rounded-Bold": require("../assets/fonts/SF_Pro_Rounded/SF-Pro-Rounded-Bold.otf"),
+  "SF-Pro-Rounded-Heavy": require("../assets/fonts/SF_Pro_Rounded/SF-Pro-Rounded-Heavy.otf"),
+  "SF-Pro-Rounded-Medium": require("../assets/fonts/SF_Pro_Rounded/SF-Pro-Rounded-Medium.otf"),
+  "SF-Pro-Rounded-Regular": require("../assets/fonts/SF_Pro_Rounded/SF-Pro-Rounded-Regular.otf"),
+  "SF-Pro-Rounded-Semibold": require("../assets/fonts/SF_Pro_Rounded/SF-Pro-Rounded-Semibold.otf"),
+  Inter_400Regular,
+  Inter_500Medium,
+  Inter_600SemiBold,
+});
+```
+
 ## Modifying the deeplinking scheme
 
 Edit the `scheme` property in `app.json` file, for your custom deeplinking scheme.
