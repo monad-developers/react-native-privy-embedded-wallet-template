@@ -315,8 +315,8 @@ You can edit the landing page by editing the code in the file `app/index.tsx`.
 
 The template has example code for the following Wallet Actions:
 
-- [Send USDC](https://github.com/monad-developers/react-native-privy-embedded-wallet-template/blob/main/components/sheets/SendSheet.tsx) 
-- [Sign Message](https://github.com/monad-developers/react-native-privy-embedded-wallet-template/blob/main/components/sheets/SignSheet.tsx)
+- [Send USDC](https://github.com/monad-developers/react-native-privy-embedded-wallet-template/blob/demo/components/sheets/SendSheet.tsx) 
+- [Sign Message](https://github.com/monad-developers/react-native-privy-embedded-wallet-template/blob/demo/components/sheets/SignSheet.tsx)
 
 
 ## Modifying the package/bundle identifier
@@ -415,7 +415,7 @@ To learn more about developing your project with Expo, Privy, and Monad look at 
 - [Expo documentation](https://docs.expo.dev/)
 - [Expo guides](https://docs.expo.dev/guides)
 - [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/)
-- [Creating embedded wallet on the client side](https://docs.privy.io/wallets/wallets/create/from-my-client)
+- [Creating embedded wallet on the client side](https://docs.privy.io/wallets/wallets/create/create-a-wallet)
 - [Sending transactions using embedded wallet](https://docs.privy.io/wallets/using-wallets/ethereum/send-a-transaction)
 - [Signing transactions using embedded wallet](https://docs.privy.io/wallets/using-wallets/ethereum/sign-a-transaction)
 - [Tooling and infra options on Monad](https://docs.monad.xyz/tooling-and-infra/)
