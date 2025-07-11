@@ -6,13 +6,9 @@ export default function ResetProject() {
     return <Collapsible title="Reset Project">
     <CollapsibleContentContainer>
       <ThemedText>
-        You can use the script in the scripts folder to reset the project to a
-        blank state.
+        You can switch to the main branch to start fresh.
       </ThemedText>
-      <ThemedText>
-        This will remove the Privy specific code as well!
-      </ThemedText>
-      <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText>
+      <ThemedText type="defaultSemiBold">git checkout main</ThemedText>
     </CollapsibleContentContainer>
   </Collapsible>
 }
