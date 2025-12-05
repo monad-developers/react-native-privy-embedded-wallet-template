@@ -67,14 +67,5 @@
     "eslint-config-expo": "~9.2.0",
     "typescript": "~5.8.3"
   },
-  "private": true,
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@reown/appkit",
-      "bufferutil",
-      "keccak",
-      "unrs-resolver",
-      "utf-8-validate"
-    ]
-  }
+  "private": true
 }

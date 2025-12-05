@@ -1,4 +1,11 @@
 packages:
-  -"."
+  - .
 
 minimumReleaseAge: 10080
+
+onlyBuiltDependencies:
+  - '@reown/appkit'
+  - bufferutil
+  - keccak
+  - unrs-resolver
+  - utf-8-validate
